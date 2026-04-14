@@ -1,0 +1,160 @@
+.student-dashboard {
+  color: white;
+  width: 100%;
+}
+
+.student-dashboard h1 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.student-dashboard h2 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.empty-message {
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.tests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.test-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.test-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.test-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.test-card-header h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.questions-count {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.test-description {
+  margin: 8px 0;
+  opacity: 0.9;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+.teacher-name {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 8px 0;
+}
+
+.last-result {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 8px 12px;
+  margin: 12px 0;
+  font-size: 0.9rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.start-test-btn {
+  display: block;
+  background: white;
+  color: #2a3f6e;
+  text-decoration: none;
+  text-align: center;
+  padding: 12px;
+  border-radius: 40px;
+  font-weight: 600;
+  margin-top: auto;
+  transition: background 0.2s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.start-test-btn:hover {
+  background: #f0f0ff;
+  transform: scale(1.02);
+}
+
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.result-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.result-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.result-info strong {
+  font-size: 1rem;
+}
+
+.result-info span {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.result-score {
+  font-weight: 700;
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 30px;
+}
+
+.loading {
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 40px;
+}
