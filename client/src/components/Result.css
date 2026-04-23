@@ -56,11 +56,11 @@
 }
 
 .review-answer.correct {
-  color: #c6f7d0;
+  color: 
 }
 
 .review-answer.wrong {
-  color: #ffb3b3;
+  color: 
 }
 
 .restart-btn {
@@ -70,7 +70,7 @@
   border-radius: 40px;
   font-weight: 600;
   font-size: 1rem;
-  color: #5a4fcf;
+  color: 
   cursor: pointer;
   transition: 0.2s;
   margin-top: 8px;
@@ -79,7 +79,7 @@
 
 .restart-btn:hover {
   transform: scale(1.02);
-  background: #f0f0ff;
+  background: 
 }
 
 @media (max-width: 550px) {

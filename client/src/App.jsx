@@ -36,7 +36,7 @@ function App() {
           <Route path="/student" element={<PrivateRoute role="student"><StudentDashboard /></PrivateRoute>} />
           <Route path="/teacher" element={<PrivateRoute role="teacher"><TeacherDashboard /></PrivateRoute>} />
           <Route path="/teacher/create" element={<PrivateRoute role="teacher"><TestCreator /></PrivateRoute>} />
-          {/* 👇 Вот этот маршрут добавь */}
+          {}
           <Route path="/teacher/edit/:id" element={<PrivateRoute role="teacher"><EditTest /></PrivateRoute>} />
           <Route path="/test/:id" element={<PrivateRoute><TestTaker /></PrivateRoute>} />
           <Route path="/" element={<Navigate to={user ? `/${user.role}` : '/login'} />} />

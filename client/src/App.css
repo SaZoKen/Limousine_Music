@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https:
 
 * {
   margin: 0;
@@ -12,7 +12,7 @@ html {
 
 body {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1e3c72, #2a5298, #6b4e8f, #c94f7c);
+  background: linear-gradient(135deg, 
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
   display: flex;
@@ -34,7 +34,7 @@ body {
 
 .app-container {
   width: 100%;
-  max-width: 900px; /* чуть шире для карточек */
+  max-width: 900px; 
   margin: 0 auto;
   min-width: 300px;
 }
@@ -54,7 +54,7 @@ body {
   justify-content: space-between;
   position: relative;
   overflow: hidden;
-  color: white; /* базовый цвет текста внутри карточки */
+  color: white; 
 }
 
 .glass-card::before {
@@ -90,7 +90,7 @@ body {
   border-radius: 60px;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #2a3f6e;
+  color: 
   cursor: pointer;
   backdrop-filter: blur(4px);
   transition: all 0.2s;

@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 const db = new Database(path.join(__dirname, 'test.db'));
 
-// Создание таблиц
+
 db.exec(`
   -- Пользователи (учитель/ученик)
   CREATE TABLE IF NOT EXISTS users (
@@ -62,9 +62,9 @@ db.exec(`
   );
 `);
 
-// Функция инициализации стандартных тестов
+
 function initializeDefaultTests() {
-  // Проверяем, есть ли уже тесты
+  
   const testCount = db.prepare('SELECT COUNT(*) as count FROM tests').get().count;
   if (testCount > 0) {
     console.log('Тесты уже существуют, пропускаем инициализацию.');
@@ -73,7 +73,7 @@ function initializeDefaultTests() {
 
   console.log('Создаём системного учителя и стандартные тесты...');
 
-  // 1. Создаём системного учителя, если его нет
+  
   let teacher = db.prepare('SELECT id FROM users WHERE email = ?').get('admin@example.com');
   if (!teacher) {
     const hashedPassword = bcrypt.hashSync('admin123', 10);
@@ -82,7 +82,7 @@ function initializeDefaultTests() {
     teacher = { id: info.lastInsertRowid };
   }
 
-  // 2. Функция для вставки теста с вопросами
+  
   const insertTest = (title, description, questionsData) => {
     const testStmt = db.prepare('INSERT INTO tests (teacher_id, title, description) VALUES (?, ?, ?)');
     const testInfo = testStmt.run(teacher.id, title, description);
@@ -103,7 +103,7 @@ function initializeDefaultTests() {
     console.log(`Тест "${title}" создан с ${questionsData.length} вопросами.`);
   };
 
-  // 3. Данные вопросов из старого questions.json (сокращённо для примера, вставь свои полные)
+  
   const juniorQuestions = [
   { id: 1, text: "Что такое HTML?", options: ["Язык разметки", "Язык программирования", "Стиль", "База данных"], correct: 0 },
   { id: 2, text: "Какой тег используется для создания ссылки?", options: ["<a>", "<link>", "<href>", "<url>"], correct: 0 },
@@ -180,7 +180,7 @@ const seniorQuestions = [
   console.log('Инициализация стандартных тестов завершена.');
 }
 
-// Вызываем инициализацию
+
 initializeDefaultTests();
 
 console.log('База данных готова.');

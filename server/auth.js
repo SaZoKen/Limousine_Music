@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const SECRET_KEY = 'твой_секретный_ключ_замени_на_сложный_12345'; // Замени на свой!
+const SECRET_KEY = 'твой_секретный_ключ_замени_на_сложный_12345'; 
 
 function generateToken(user) {
   return jwt.sign(

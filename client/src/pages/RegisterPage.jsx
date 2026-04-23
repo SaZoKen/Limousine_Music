@@ -24,7 +24,7 @@ function RegisterPage() {
   return (
     <div style={{ color: 'white' }}>
       <h2>Регистрация</h2>
-      {error && <p style={{ color: '#ffb3b3' }}>{error}</p>}
+      {error && <p style={{ color: '
       <form onSubmit={handleSubmit}>
         <input
           type="text"

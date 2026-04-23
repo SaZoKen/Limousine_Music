@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../services/api';
-import './StudentDashboard.css'; // создадим новый файл стилей
+import './StudentDashboard.css'; 
 
 function StudentDashboard() {
   const [tests, setTests] = useState([]);
@@ -28,10 +28,10 @@ function StudentDashboard() {
 
   if (loading) return <div className="loading">Загрузка...</div>;
 
-  // Создаём объект для быстрого поиска последнего результата по test_id
+  
   const resultsByTestId = {};
   results.forEach(r => {
-    // Если несколько попыток, оставляем последнюю (с самым поздним finished_at)
+    
     if (!resultsByTestId[r.test_id] || new Date(r.finished_at) > new Date(resultsByTestId[r.test_id].finished_at)) {
       resultsByTestId[r.test_id] = r;
     }

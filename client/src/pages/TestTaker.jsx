@@ -22,7 +22,7 @@ function TestTaker() {
       try {
         const data = await api.getTest(id);
         setTest(data);
-        // Перемешиваем вопросы и варианты
+        
         const shuffled = shuffleArray(data.questions).map(q => {
           const indices = Array.from({ length: q.options.length }, (_, i) => i);
           const shuffledIndices = shuffleArray(indices);
@@ -53,7 +53,7 @@ function TestTaker() {
     if (current + 1 < questions.length) {
       setCurrent(current + 1);
     } else {
-      // Завершить тест
+      
       submitAnswers();
     }
   };

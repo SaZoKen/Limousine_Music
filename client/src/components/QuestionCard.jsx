@@ -2,7 +2,7 @@ import React from 'react';
 import './QuestionCard.css';
 
 function QuestionCard({ question, selectedAnswer, onAnswer }) {
-  // Защита от undefined (пока вопросы не загружены)
+  
   if (!question || !question.options) {
     return (
       <div className="question-card">

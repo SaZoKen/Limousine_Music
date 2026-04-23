@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../services/api';
-import './TestCreator.css'; // Используем тот же файл стилей
+import './TestCreator.css'; 
 
 function EditTest() {
   const { id } = useParams();

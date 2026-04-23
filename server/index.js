@@ -10,9 +10,9 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
-// ========== Аутентификация ==========
 
-// Регистрация
+
+
 app.post('/api/auth/register', async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
@@ -38,7 +38,7 @@ app.post('/api/auth/register', async (req, res) => {
   }
 });
 
-// Вход
+
 app.post('/api/auth/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -59,15 +59,15 @@ app.post('/api/auth/login', async (req, res) => {
   }
 });
 
-// Получить текущего пользователя
+
 app.get('/api/auth/me', verifyToken, (req, res) => {
   const user = db.prepare('SELECT id, name, email, role FROM users WHERE id = ?').get(req.user.id);
   res.json(user);
 });
 
-// ========== Тесты (управление) ==========
 
-// Получить список тестов (для ученика - все, для учителя - только свои)
+
+
 app.get('/api/tests', verifyToken, (req, res) => {
   try {
     let query = `
@@ -91,7 +91,7 @@ app.get('/api/tests', verifyToken, (req, res) => {
   }
 });
 
-// Создать новый тест (только учитель)
+
 app.post('/api/tests', verifyToken, requireRole('teacher'), (req, res) => {
   try {
     const { title, description, questions } = req.body;
@@ -124,7 +124,7 @@ app.post('/api/tests', verifyToken, requireRole('teacher'), (req, res) => {
   }
 });
 
-// Получить один тест с вопросами (для прохождения)
+
 app.get('/api/tests/:id', verifyToken, (req, res) => {
   try {
     const testId = req.params.id;
@@ -155,7 +155,7 @@ app.get('/api/tests/:id', verifyToken, (req, res) => {
   }
 });
 
-// Удалить тест (только учитель, только свой)
+
 app.delete('/api/tests/:id', verifyToken, requireRole('teacher'), (req, res) => {
   try {
     const testId = req.params.id;
@@ -174,9 +174,9 @@ app.delete('/api/tests/:id', verifyToken, requireRole('teacher'), (req, res) => 
   }
 });
 
-// ========== Прохождение тестов ==========
 
-// Начать сессию (ученик)
+
+
 app.post('/api/tests/:id/start', verifyToken, requireRole('student'), (req, res) => {
   try {
     const testId = req.params.id;
@@ -189,11 +189,11 @@ app.post('/api/tests/:id/start', verifyToken, requireRole('student'), (req, res)
   }
 });
 
-// Отправить ответы и завершить тест
+
 app.post('/api/sessions/:sessionId/submit', verifyToken, (req, res) => {
   try {
     const sessionId = req.params.sessionId;
-    const { answers } = req.body; // [{ questionId, selectedIndex }]
+    const { answers } = req.body; 
 
     const session = db.prepare('SELECT * FROM test_sessions WHERE id = ?').get(sessionId);
     if (!session) return res.status(404).json({ error: 'Сессия не найдена' });
@@ -230,10 +230,10 @@ app.post('/api/sessions/:sessionId/submit', verifyToken, (req, res) => {
   }
 });
 
-// Получить результаты всех своих тестов (ученик)
+
 app.get('/api/results', verifyToken, requireRole('student'), (req, res) => {
   try {
-    // Проверим, что таблицы существуют
+    
     const tables = db.prepare(`SELECT name FROM sqlite_master WHERE type='table'`).all();
     console.log('Таблицы в БД:', tables.map(t => t.name));
     
@@ -261,7 +261,7 @@ app.get('/api/results', verifyToken, requireRole('student'), (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Сервер запущен на http://localhost:${PORT}`);
+  console.log(`Сервер запущен на http:
 });
 
 app.put('/api/tests/:id', verifyToken, requireRole('teacher'), (req, res) => {
@@ -269,19 +269,19 @@ app.put('/api/tests/:id', verifyToken, requireRole('teacher'), (req, res) => {
     const testId = req.params.id;
     const { title, description, questions } = req.body;
     
-    // Проверка прав
+    
     const test = db.prepare('SELECT teacher_id FROM tests WHERE id = ?').get(testId);
     if (!test) return res.status(404).json({ error: 'Тест не найден' });
     if (test.teacher_id !== req.user.id) return res.status(403).json({ error: 'Доступ запрещён' });
     
-    // Обновляем основную информацию
+    
     db.prepare('UPDATE tests SET title = ?, description = ? WHERE id = ?')
       .run(title, description || '', testId);
     
-    // Удаляем старые вопросы
+    
     db.prepare('DELETE FROM test_questions WHERE test_id = ?').run(testId);
     
-    // Вставляем новые вопросы
+    
     const insertQuestion = db.prepare(`
       INSERT INTO test_questions (test_id, question_text, options, correct, position)
       VALUES (?, ?, ?, ?, ?)

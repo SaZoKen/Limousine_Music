@@ -1,4 +1,4 @@
-/* Стили для создания/редактирования теста */
+
 
 .test-creator {
   color: white;
@@ -19,7 +19,7 @@
   font-weight: 500;
 }
 
-/* Общие стили для всех полей ввода внутри .test-creator */
+
 .test-creator input[type="text"],
 .test-creator input[type="number"],
 .test-creator input[type="email"],
@@ -67,7 +67,7 @@
   margin-bottom: 0;
 }
 
-/* Блок вопроса */
+
 .question-block {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(8px);
@@ -113,7 +113,7 @@
   transform: scale(1.05);
 }
 
-/* Строка с вариантом ответа */
+
 .option-row {
   display: flex;
   align-items: center;
@@ -149,7 +149,7 @@
   margin-bottom: 0 !important;
 }
 
-/* Кнопка добавления вопроса */
+
 .add-btn {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(5px);
@@ -173,7 +173,7 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Кнопки действий внизу */
+
 .form-actions {
   display: flex !important;
   gap: 30px !important;
@@ -197,12 +197,12 @@
 
 .save-btn {
   background: white;
-  color: #2a3f6e;
+  color: 
   border: 1px solid white;
 }
 
 .save-btn:hover {
-  background: #f0f0ff;
+  background: 
   transform: scale(1.02);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
@@ -218,7 +218,7 @@
   transform: scale(1.02);
 }
 
-/* Загрузка */
+
 .loading {
   color: white;
   font-size: 1.2rem;
@@ -226,7 +226,7 @@
   padding: 40px;
 }
 
-/* Адаптивность */
+
 @media (max-width: 550px) {
   .test-creator h2 {
     font-size: 1.8rem;

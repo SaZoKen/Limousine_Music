@@ -22,7 +22,7 @@ function LoginPage() {
   return (
     <div style={{ color: 'white' }}>
       <h2>Вход</h2>
-      {error && <p style={{ color: '#ffb3b3' }}>{error}</p>}
+      {error && <p style={{ color: '
       <form onSubmit={handleSubmit}>
         <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required style={{ width: '100%', padding: 10, marginBottom: 15, borderRadius: 20, border: 'none' }} />
         <input type="password" placeholder="Пароль" value={password} onChange={e => setPassword(e.target.value)} required style={{ width: '100%', padding: 10, marginBottom: 15, borderRadius: 20, border: 'none' }} />
